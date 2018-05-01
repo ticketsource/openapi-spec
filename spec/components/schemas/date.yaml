@@ -1,0 +1,36 @@
+properties:
+  id:
+    description: A unique identifier for the Date
+    type: string
+    example: dat-ABCD12345
+  type:
+    description: A string representing the object's type, in this case "date"
+    type: string
+    example: date
+  attributes:
+    description: The attributes for this Customer
+    type: object
+    properties:
+      doors_open:
+        description: The DateTime that the venue opens for the event Date
+        type: string
+        format: date-time
+        example: 2019-04-27T07:05:00+00:00
+      start:
+        description: The DateTime that the event Date starts
+        type: string
+        format: date-time
+        example: 2019-04-27T19:20:00+00:00
+      end:
+        description: The DateTime that the event Date ends
+        type: string
+        format: date-time
+        example:
+      on_sale:
+        description: Whether the date is on sale
+        type: boolean
+        example: true
+      cancelled:
+        description: Whether the date has been cancelled
+        type: boolean
+        example: false

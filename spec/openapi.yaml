@@ -1,0 +1,193 @@
+openapi: "3.0.1"
+info:
+  title: "TicketSource API OpenAPI Specification"
+  description: "This is an OpenAPI 3.0.1 specification describing the TicketSource API"
+  version: "1.0"
+  termsOfService: https://www.ticketsource.io/terms
+  contact:
+    name: TicketSource API Developer Support
+    url: https://www.ticketsource.io/docs
+  x-logo:
+    url: "https://cdn.ticketsource.co.uk/brochure/images/TicketSource_logo.svg"
+    backgroundColor: "#171E21"
+servers:
+  - url: https://api.ticketsource.io
+    description: Production Server
+tags:
+  - name: customers
+    description: Customer specific endpoints
+  - name: dates
+    description: Date specific endpoints
+  - name: events
+    description: Event specific endpoints
+  - name: venues
+    description: Venue specific endpoints
+components:
+  parameters:
+    $ref: ./components/parameters.yaml
+  responses:
+    $ref: ./components/responses.yaml
+  schemas:
+    $ref: ./components/schemas.yaml
+  securitySchemes:
+    BasicAPIKey:
+      type: http
+      scheme: basic
+      description: The API key provided in the HTTP Basic Auth username
+    HeaderAPIKey:
+      type: apiKey
+      name: TicketSource-APIKey
+      in: header
+      description: The API key provided in the Key HTTP header
+paths:
+  /customers:
+    get:
+      tags:
+        - customers
+      summary: List of all Customers
+      description: Get a list of all your Customers
+      operationId: GET_CUSTOMER_LIST
+      responses:
+        200:
+          description: An array of Customer objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/customer'
+  /customers/{cid}:
+    get:
+      tags:
+        - customers
+      summary: Get a single Customer
+      description: Get a single Customer object for the requested Customer ID
+      operationId: GET_CUSTOMER
+      responses:
+        200:
+          description: The Customer object matching the requested Customer ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer'
+  /events:
+    get:
+      tags:
+        - events
+      summary: List all Events
+      description: Get a list of all your Events
+      operationId: GET_EVENT_LIST
+      security:
+        - BasicAPIKey: []
+        - HeaderAPIKey: []
+      responses:
+        200:
+          description: An array of Event objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/event'
+  /events/{eid}:
+    get:
+      tags:
+        - events
+      summary: Get a single Event
+      description: Get a single Event object for the requested Event ID
+      operationId: GET_EVENT
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: The Event object matching the requested Event ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/event'
+  /events/{eid}/venues:
+    get:
+      tags:
+        - venues
+      summary: List all Venues for an Event
+      description: Get a list of Venue objects for the requested Event ID
+      operationId: GET_EVENT_VENUES
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: An array of Venue objects for the requested Event ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/venue'
+  /venues/{vid}:
+    get:
+      tags:
+        - venues
+      summary: Get a single Venue
+      description: Get a single Venue object for the requested Venue ID
+      operationId: GET_VENUE
+      parameters:
+        - $ref: '#/components/parameters/venueIdParam'
+      responses:
+        200:
+          description: The Venue object matching the requested Venue ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/venue'
+  /events/{eid}/dates:
+    get:
+      tags:
+        - dates
+      summary: List all Dates for an Event
+      description: Get a list of Date objects for the requested Event ID
+      operationId: GET_EVENT_DATES
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: An array of Date objects for the requested Event ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/date'
+  /venue/{vid}/dates:
+    get:
+      tags:
+        - dates
+      summary: List all Dates for a Venue
+      description: Get a list of Date objects for the requested Venue ID
+      operationId: GET_VENUE_DATES
+      parameters:
+        - $ref: '#/components/parameters/venueIdParam'
+      responses:
+        200:
+          description: An array of Date objects for the requested Venue ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/date'
+  /date/{did}:
+    get:
+      tags:
+        - dates
+      summary: Get a single Date
+      description: Get a single Date object for the requested Date ID
+      operationId: GET_DATE
+      parameters:
+        - $ref: '#/components/parameters/dateIdParam'
+      responses:
+        200:
+          description: The Date object matching the requested Date ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/date'

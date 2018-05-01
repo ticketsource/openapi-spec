@@ -1,0 +1,9 @@
+BasicAPIKey:
+  type: http
+  scheme: basic
+  description: The API key provided in the HTTP Basic Auth username
+HeaderAPIKey:
+  type: apiKey
+  name: TicketSource-APIKey
+  in: header
+  description: The API key provided in the Key HTTP header

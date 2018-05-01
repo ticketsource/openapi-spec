@@ -1,0 +1,20 @@
+EventList:
+  description: An array of Event objects
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '../openapi.yaml#/components/schemas/event'
+EventShow:
+  description: The Event object matching the requested Event ID
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          data:
+            $ref: '../openapi.yaml#/components/schemas/event'

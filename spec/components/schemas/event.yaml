@@ -1,0 +1,86 @@
+properties:
+  id:
+    description: A unique identifier for the Event
+    type: string
+    example: evt-ABCD12345
+  type:
+    description: A string representing the object's type, in this case "event"
+    type: string
+    example: event
+  attributes:
+    description: The attributes for this Customer
+    type: object
+    properties:
+      name:
+        description: The event name
+        type: string
+        example: Sample Event
+      reference:
+        description: The reference for this event
+        type: string
+        example: SAMPEVENT
+      description:
+        description: The event description
+        type: string
+        example: A Sample Event on the TicketSource System
+      keywords:
+        description: Keywords for this event
+        type: string
+        example: event, test, sample
+      terms:
+        description: Terms and conditions for this event
+        type: string
+        example:
+      category:
+        description: The category this even belongs to
+        type: string
+        example: business
+      genre:
+        description: The genre for this event within the category
+        type: string
+        example: training
+      created_at:
+        description: The DateTime that the event was created
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z
+      third_party_consent:
+        description: The event third part contact consent options
+        type: object
+        properties:
+          capture:
+            description: Wether to capture third party contact consent for this event
+            type: boolean
+            example: true
+          name:
+            description: The third part associated with this event
+            type: string
+            example: Example Visiting Theatre Company
+          show_consent:
+            description: The third party contact consent options to show
+            type: object
+            properties:
+              email:
+                description: Whether to capture third party contact consent via email
+                type: boolean
+                example: true
+              post:
+                description: Whether to capture third party contact consent via post
+                type: boolean
+                example: false
+              sms:
+                description: Whether to capture third party contact consent via sms
+                type: boolean
+                example: false
+      activated:
+        description: Whether this event has been activated or not
+        type: boolean
+        example: true
+      archived:
+        description: Whether this event has been archived or not
+        type: boolean
+        example: false
+      public:
+        description: Whether this event is publicly searchable and will appear on listings pages
+        type: boolean
+        example: true

@@ -1,0 +1,81 @@
+properties:
+  id:
+    description: A unique identifier for the Customer
+    type: string
+    example: cst-ABCD12345
+  type:
+    description: A string representing the object's type, in this case "customer"
+    type: string
+    example: customer
+  attributes:
+    description: The attributes for this Customer
+    type: object
+    properties:
+      title:
+        description: The Customer's title
+        type: string
+        example: Mr
+      first_name:
+        description: The Customer's first name
+        type: string
+        example: Joanne
+      last_name:
+        description: The Customer's last name
+        type: string
+        example: Bloggs
+      address:
+        description: The Customer's postal address
+        type: object
+        properties:
+          line_1:
+            description: The first line of the customer's address
+            type: string
+            example: 42 Example Lane
+          line_2:
+            description: The second line of the customer's address
+            type: string
+            example: Exampleton
+          line_3:
+            description: The third line of the customer's address
+            type: string
+            example:
+          line_4:
+            description: The fourth line of the customer's address
+            type: string
+            example:
+          postcode:
+            description: The customer's address postcode
+            type: string
+            example: EX123PL
+      telephone_no:
+        description: The customer's telephone number
+        type: string
+        example: 0123456789
+      email:
+        description: The customer's email address
+        type: string
+        example: jbloggs@example.com
+      membership:
+        description: The Customer's membership details
+        type: object
+        properties:
+          membership_no:
+            description: The Customer's mombership number
+            type: string
+            example: C1-3456
+      consent:
+        description: The Customer's consent details
+        type: object
+        properties:
+          email:
+            description: The Customer's email contact preference
+            type: boolean
+            example: true
+          post:
+            description: The Customer's post contact preference
+            type: boolean
+            example: false
+          sms:
+            description: The Customer's sms contact preference
+            type: boolean
+            example: false

@@ -1,0 +1,36 @@
+customerIdParam:
+  name: cid
+  in: path
+  description: A unique identifier for the Customer
+  required: true
+  explode: false
+  schema:
+    type: string
+  example: cst-ABCD12345
+dateIdParam:
+  name: did
+  in: path
+  description: A unique identifier for the Date
+  required: true
+  explode: false
+  schema:
+    type: string
+  example: dat-ABCD12345
+eventIdParam:
+  name: eid
+  in: path
+  description: A unique identifier for the Event
+  required: true
+  explode: false
+  schema:
+    type: string
+  example: evt-ABCD12345
+venueIdParam:
+  name: vid
+  in: path
+  description: A unique identifier for the Venue
+  required: true
+  explode: false
+  schema:
+    type: string
+  example: ven-ABCD12345

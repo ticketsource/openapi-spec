@@ -1,0 +1,8 @@
+customer:
+  $ref: ./schemas/customer.yaml
+date:
+  $ref: ./schemas/date.yaml
+event:
+  $ref: ./schemas/event.yaml
+venue:
+  $ref: ./schemas/venue.yaml
