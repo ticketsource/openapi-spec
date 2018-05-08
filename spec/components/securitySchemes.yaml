@@ -2,8 +2,7 @@ BasicAPIKey:
   type: http
   scheme: basic
   description: The API key provided in the HTTP Basic Auth username
-HeaderAPIKey:
-  type: apiKey
-  name: TicketSource-APIKey
-  in: header
-  description: The API key provided in the Key HTTP header
+BearerToken:
+  type: http
+  scheme: bearer
+  description: The API key provided as a Bearer Token in the Authorization HTTP header
