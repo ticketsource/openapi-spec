@@ -1,7 +1,10 @@
 openapi: "3.0.1"
 info:
   title: "TicketSource API OpenAPI Specification"
-  description: "This is an OpenAPI 3.0.1 specification describing the TicketSource API"
+  description: |
+    This is an OpenAPI 3.0.1 specification describing the TicketSource API
+    # Contribution
+    PRs welcome at [GitHub](https://github.com/ticketsource/openapi-spec)
   version: "1.0"
   termsOfService: https://www.ticketsource.io/terms
   contact:
