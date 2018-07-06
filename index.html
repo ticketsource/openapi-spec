@@ -17,7 +17,17 @@
     </style>
 </head>
 <body>
-    <redoc spec-url='spec/openapi.yaml' ></redoc>
-    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-alpha.24/bundles/redoc.standalone.min.js"> </script>
+    <div id="redoc"></div>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-alpha.28/bundles/redoc.standalone.min.js"></script>
+    <script type="application/javascript">
+        Redoc.init('spec/openapi.yaml', {
+          requiredPropsFirst: true,
+          theme: {
+            colors: {
+              main: '#FD971F',
+            }
+          }
+        }, document.getElementById('redoc'));
+    </script>
 </body>
 </html>
