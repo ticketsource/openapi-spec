@@ -8,7 +8,7 @@ properties:
     type: string
     example: event
   attributes:
-    description: The attributes for this Customer
+    description: The attributes for this Event
     type: object
     properties:
       name:
@@ -39,6 +39,11 @@ properties:
         description: The genre for this event within the category
         type: string
         example: training
+      images:
+        description: An array of images associated with this event
+        type: array
+        items:
+          $ref: '../../openapi.yaml#/components/schemas/eventImage'
       created_at:
         description: The DateTime that the event was created
         type: string

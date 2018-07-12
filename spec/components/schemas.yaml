@@ -4,5 +4,7 @@ date:
   $ref: ./schemas/date.yaml
 event:
   $ref: ./schemas/event.yaml
+eventImage:
+  $ref: ./schemas/eventImage.yaml
 venue:
   $ref: ./schemas/venue.yaml
