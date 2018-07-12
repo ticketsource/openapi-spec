@@ -10,9 +10,6 @@ info:
   contact:
     name: TicketSource API Developer Support
     url: https://www.ticketsource.io/docs
-  x-logo:
-    url: "https://cdn.ticketsource.co.uk/brochure/images/TicketSource_logo.svg"
-    backgroundColor: "#171E21"
 servers:
   - url: https://api.ticketsource.io
     description: Production Server

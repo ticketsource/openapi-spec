@@ -1,0 +1,9 @@
+properties:
+  type:
+    description: The type of image. Currently one of [thumbnail|banner]
+    type: string
+    example: thumbnail
+  src:
+    description: The src for the image
+    type: string
+    example: https://cdn.ticketsource.co.uk/images/promoter/banner/0001-CZBGTjQn.png
