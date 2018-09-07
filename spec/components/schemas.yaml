@@ -1,3 +1,7 @@
+booking:
+  $ref: ./schemas/booking.yaml
+bookingLine:
+  $ref: ./schemas/bookingLine.yaml
 customer:
   $ref: ./schemas/customer.yaml
 date:

@@ -14,6 +14,8 @@ servers:
   - url: https://api.ticketsource.io
     description: Production Server
 tags:
+  - name: bookings
+    description: Booking specific endpoints
   - name: customers
     description: Customer specific endpoints
   - name: dates
@@ -35,6 +37,20 @@ security:
   - BasicAPIKey: []
   - BearerToken: []
 paths:
+  /bookings/{bid}:
+    get:
+      tags:
+      - bookings
+      summary: Get a single Booking
+      description: Get a single Booking object for the requested Booking ID
+      operationId: GET_BOOKING
+      responses:
+        200:
+          description: The Booking object matching the requested Booking ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/booking'
   /customers:
     get:
       tags:
@@ -65,6 +81,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/customer'
+  /customers/{cid}/bookings:
+    get:
+      tags:
+        - bookings
+      summary: List all Bookings for a Customer
+      description: Get a list of Booking objects for the requested Customer ID
+      operationId: GET_CUSTOMER_BOOKINGS
+      parameters:
+        - $ref: '#/components/parameters/customerIdParam'
+      responses:
+        200:
+          description: An array of Booking objects for the requested Customer ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/booking'
   /events:
     get:
       tags:
@@ -183,3 +217,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/date'
+  /dates/{did}/bookings:
+    get:
+      tags:
+      - bookings
+      summary: List all Bookings for a Date
+      description: Get a list of Booking objects for the requested Date ID
+      operationId: GET_DATE_BOOKINGS
+      parameters:
+      - $ref: '#/components/parameters/dateIdParam'
+      responses:
+        200:
+          description: An array of Booking objects for the requested Date ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/booking'

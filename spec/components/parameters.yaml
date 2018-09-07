@@ -1,3 +1,12 @@
+bookingIdParam:
+  name: bid
+  in: path
+  description: A unique identifier for the Booking
+  required: true
+  explode: false
+  schema:
+    type: string
+  example: bkg-ABCD12345
 customerIdParam:
   name: cid
   in: path
