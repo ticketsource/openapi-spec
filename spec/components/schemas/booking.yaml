@@ -1,0 +1,51 @@
+properties:
+  id:
+    description: A unique identifier for the Booking
+    type: string
+    example: bkg-ABCD12345
+  type:
+    description: A string representing the object's type, in this case "booking"
+    type: string
+    example: booking
+  attributes:
+    description: The attributes for this Booking
+    type: object
+    properties:
+      ref:
+        description: The unique reference  for this Booking
+        type: string
+        example: A12BCD
+      lines:
+        description: The transaction lines for this booking
+        type: array
+        items:
+          $ref: '../../openapi.yaml#/components/schemas/bookingLine'
+      consent:
+        description: The communication consent details for the third party associated with this booking
+        type: object
+        properties:
+          third_party:
+            description: The third party associated with this booking
+            type: string
+            example: Test Theatre Please Ignore
+          email:
+            description: The Customer's third party email contact preference
+            type: boolean
+            example: true
+          post:
+            description: The Customer's third party post contact preference
+            type: boolean
+            example: false
+          sms:
+            description: The Customer's third party sms contact preference
+            type: boolean
+            example: false
+      user_booked_by:
+        description: A string representing the user name of the user who took this Booking
+        type: string
+        example: A. Staff-Member
+      created_at:
+        description: The DateTime that the Booking was booked
+        type: string
+        format: date-time
+        example: 2019-04-27T07:05:00+00:00
