@@ -6,10 +6,10 @@ info:
     # Contribution
     PRs welcome at [GitHub](https://github.com/ticketsource/openapi-spec)
   version: "1.0"
-  termsOfService: https://www.ticketsource.io/terms
+  termsOfService: https://www.ticketsource.co.uk/kb/terms-of-use/terms-and-conditions
   contact:
     name: TicketSource API Developer Support
-    url: https://www.ticketsource.io/docs
+    url: https://www.ticketsource.io
 servers:
   - url: https://api.ticketsource.io
     description: Production Server
