@@ -22,15 +22,18 @@ properties:
     properties:
       gross:
         description: The amount paid by the Customer before TicketSource fees are deducted
-        type: float
+        type: number
+        format: double
         example: 4.5
       fee:
         description: The amount of TicketSource fee applied
-        type: float
+        type: number
+        format: double
         example: 0
       fee_vat:
         description: The VAT applied to the TicketSource fee
-        type: float
+        type: number
+        format: double
         example: 0
       discounts:
         description: Any discounts that applied
@@ -38,7 +41,8 @@ properties:
         properties:
           automatic:
             description: The amount of automatic discount applied
-            type: float
+            type: number
+            format: double
             example: 4.5
           code:
             description: A discount code manually applied
@@ -50,9 +54,11 @@ properties:
                 example: 10PCNTOFF
               amount:
                 description: The amount deducted for this discount
-                type: float
+                type: number
+                format: double
                 example: 1
       net:
         description: The amount paid by the Customer after TicketSource fees are deducted
-        type: float
+        type: number
+        format: double
         example: 4.5

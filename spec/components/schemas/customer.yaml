@@ -65,11 +65,13 @@ properties:
             example: C1-3456
           start_date:
             description: Start of the period that the customer's membership is valid for
-            type: date-time
+            type: string
+            format: date-time
             example: 2018-09-26T09:00:00+00:00
           end_date:
             description: End of the period that the customer's membership is valid for
-            type: date-time
+            type: string
+            format: date-time
             example: 2019-09-26T08:59:59+00:00
       consent:
         description: The Customer's consent details
