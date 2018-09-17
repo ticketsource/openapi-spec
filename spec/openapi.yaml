@@ -18,12 +18,24 @@ tags:
     description: Booking specific endpoints
   - name: customers
     description: Customer specific endpoints
+    externalDocs:
+      description: For more information see; Working with Customers
+      url: https://www.ticketsource.io/working-with-customers
   - name: dates
     description: Date specific endpoints
+    externalDocs:
+      description: For more information see; Working with Events
+      url: https://www.ticketsource.io/working-with-events
   - name: events
     description: Event specific endpoints
+    externalDocs:
+      description: For more information see; Working with Events
+      url: https://www.ticketsource.io/working-with-events
   - name: venues
     description: Venue specific endpoints
+    externalDocs:
+      description: For more information see; Working with Events
+      url: https://www.ticketsource.io/working-with-events
 components:
   parameters:
     $ref: ./components/parameters.yaml
