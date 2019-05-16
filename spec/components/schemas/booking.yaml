@@ -45,7 +45,12 @@ properties:
         type: string
         example: A. Staff-Member
       created_at:
-        description: The DateTime that the Booking was booked
+        description: The DateTime that the resource was created
         type: string
         format: date-time
-        example: 2019-04-27T07:05:00+00:00
+        example: 2018-01-01T00:00:00.000Z
+      updated_at:
+        description: The DateTime that the resource was last updated
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z

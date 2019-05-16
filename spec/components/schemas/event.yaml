@@ -44,11 +44,6 @@ properties:
         type: array
         items:
           $ref: '../../openapi.yaml#/components/schemas/eventImage'
-      created_at:
-        description: The DateTime that the event was created
-        type: string
-        format: date-time
-        example: 2018-01-01T00:00:00.000Z
       third_party_consent:
         description: The event third part contact consent options
         type: object
@@ -89,3 +84,13 @@ properties:
         description: Whether this event is publicly searchable and will appear on listings pages
         type: boolean
         example: true
+      created_at:
+        description: The DateTime that the resource was created
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z
+      updated_at:
+        description: The DateTime that the resource was last updated
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z

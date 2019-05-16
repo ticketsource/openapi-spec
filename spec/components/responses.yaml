@@ -9,6 +9,32 @@ EventList:
             type: array
             items:
               $ref: '../openapi.yaml#/components/schemas/event'
+          links:
+            type: object
+            description: Pagination links for a collection of resources
+            properties:
+              first:
+                description: The first page of the paginated collection
+                type: string
+              last:
+                description: The last page of the paginated collection
+                type: string
+              prev:
+                description: The previous page in the paginated collection
+                type: string
+              next:
+                description: The next page in the paginated collection
+                type: string
+          meta:
+            type: object
+            description: Metadata for a collection of resources
+            properties:
+              current_page:
+                description: The current page number
+                type: number
+              from:
+                description: The overall index of the first item in the current page
+                type: number
 EventShow:
   description: The Event object matching the requested Event ID
   content:

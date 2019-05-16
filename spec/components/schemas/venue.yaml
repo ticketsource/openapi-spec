@@ -51,3 +51,13 @@ properties:
             description: The Venue boxoffice email address
             type: string
             example: support@ticketsource.co.uk
+      created_at:
+        description: The DateTime that the resource was created
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z
+      updated_at:
+        description: The DateTime that the resource was last updated
+        type: string
+        format: date-time
+        example: 2018-01-01T00:00:00.000Z

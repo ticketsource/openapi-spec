@@ -1,10 +1,12 @@
 /bookings/{bid}:
   get:
     tags:
-    - bookings
+     - bookings
     summary: Get a single Booking
     description: Get a single Booking object for the requested Booking ID
     operationId: GET_BOOKING
+    parameters:
+      - $ref: 'openapi.yaml#/components/parameters/bookingIdParam'
     responses:
       200:
         description: The Booking object matching the requested Booking ID
