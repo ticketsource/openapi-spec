@@ -38,15 +38,711 @@ tags:
       url: https://www.ticketsource.io/working-with-events
 components:
   parameters:
-    $ref: ./components/parameters.yaml
-  responses:
-    $ref: ./components/responses.yaml
+    bookingIdParam:
+      name: bid
+      in: path
+      description: A unique identifier for the Booking
+      required: true
+      explode: false
+      schema:
+        type: string
+      example: bkg-ABCD12345
+    customerIdParam:
+      name: cid
+      in: path
+      description: A unique identifier for the Customer
+      required: true
+      explode: false
+      schema:
+        type: string
+      example: cst-ABCD12345
+    dateIdParam:
+      name: did
+      in: path
+      description: A unique identifier for the Date
+      required: true
+      explode: false
+      schema:
+        type: string
+      example: dat-ABCD12345
+    eventIdParam:
+      name: eid
+      in: path
+      description: A unique identifier for the Event
+      required: true
+      explode: false
+      schema:
+        type: string
+      example: evt-ABCD12345
+    venueIdParam:
+      name: vid
+      in: path
+      description: A unique identifier for the Venue
+      required: true
+      explode: false
+      schema:
+        type: string
+      example: ven-ABCD12345
   schemas:
-    $ref: ./components/schemas.yaml
+    booking:
+      properties:
+        id:
+          description: A unique identifier for the Booking
+          type: string
+          example: bkg-ABCD12345
+        type:
+          description: A string representing the object's type, in this case "booking"
+          type: string
+          example: booking
+        attributes:
+          description: The attributes for this Booking
+          type: object
+          properties:
+            ref:
+              description: The unique reference  for this Booking
+              type: string
+              example: A12BCD
+            lines:
+              description: The transaction lines for this booking
+              type: array
+              items:
+                $ref: '#/components/schemas/bookingLine'
+            consent:
+              description: The communication consent details for the third party associated with this booking
+              type: object
+              properties:
+                third_party:
+                  description: The third party associated with this booking
+                  type: string
+                  example: Test Theatre Please Ignore
+                email:
+                  description: The Customer's third party email contact preference
+                  type: boolean
+                  example: true
+                post:
+                  description: The Customer's third party post contact preference
+                  type: boolean
+                  example: false
+                sms:
+                  description: The Customer's third party sms contact preference
+                  type: boolean
+                  example: false
+            user_booked_by:
+              description: A string representing the user name of the user who took this Booking
+              type: string
+              example: A. Staff-Member
+            created_at:
+              description: The DateTime that the resource was created
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+            updated_at:
+              description: The DateTime that the resource was last updated
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+    bookingLine:
+      properties:
+        line_type:
+          description: The type of Booking Line
+          type: string
+          example: TICKETS
+        payment_method:
+          description: The payment method used for this Line
+          type: string
+          example: CASH
+        is_refund:
+          description: Whether this Line represents a refund
+          type: boolean
+          example: false
+        amount:
+          description: Financial information for this Line
+          type: object
+          properties:
+            gross:
+              description: The amount paid by the Customer before TicketSource fees are deducted
+              type: number
+              format: double
+              example: 4.5
+            fee:
+              description: The amount of TicketSource fee applied
+              type: number
+              format: double
+              example: 0
+            fee_vat:
+              description: The VAT applied to the TicketSource fee
+              type: number
+              format: double
+              example: 0
+            discounts:
+              description: Any discounts that applied
+              type: object
+              properties:
+                automatic:
+                  description: The amount of automatic discount applied
+                  type: number
+                  format: double
+                  example: 4.5
+                code:
+                  description: A discount code manually applied
+                  type: object
+                  properties:
+                    description:
+                      description: The code used to apply the discount
+                      type: string
+                      example: 10PCNTOFF
+                    amount:
+                      description: The amount deducted for this discount
+                      type: number
+                      format: double
+                      example: 1
+            net:
+              description: The amount paid by the Customer after TicketSource fees are deducted
+              type: number
+              format: double
+              example: 4.5
+        created_at:
+          description: The DateTime that the resource was created
+          type: string
+          format: date-time
+          example: 2018-01-01T00:00:00.000Z
+        updated_at:
+          description: The DateTime that the resource was last updated
+          type: string
+          format: date-time
+          example: 2018-01-01T00:00:00.000Z
+    customer:
+      properties:
+        id:
+          description: A unique identifier for the Customer
+          type: string
+          example: cst-ABCD12345
+        type:
+          description: A string representing the object's type, in this case "customer"
+          type: string
+          example: customer
+        attributes:
+          description: The attributes for this Customer
+          type: object
+          properties:
+            title:
+              description: The Customer's title
+              type: string
+              example: Mr
+            first_name:
+              description: The Customer's first name
+              type: string
+              example: Joanne
+            last_name:
+              description: The Customer's last name
+              type: string
+              example: Bloggs
+            address:
+              description: The Customer's postal address
+              type: object
+              properties:
+                line_1:
+                  description: The first line of the customer's address
+                  type: string
+                  example: 42 Example Lane
+                line_2:
+                  description: The second line of the customer's address
+                  type: string
+                  example: Exampleton
+                line_3:
+                  description: The third line of the customer's address
+                  type: string
+                  example:
+                line_4:
+                  description: The fourth line of the customer's address
+                  type: string
+                  example:
+                postcode:
+                  description: The customer's address postcode
+                  type: string
+                  example: EX123PL
+            telephone:
+              description: The customer's telephone number
+              type: string
+              example: 0123456789
+            email:
+              description: The customer's email address
+              type: string
+              example: jbloggs@example.com
+            membership:
+              description: The Customer's membership details
+              type: object
+              properties:
+                identifier:
+                  description: The Customer's membership identifier
+                  type: string
+                  example: C1-3456
+                start_date:
+                  description: Start of the period that the customer's membership is valid for
+                  type: string
+                  format: date-time
+                  example: 2018-09-26T09:00:00+00:00
+                end_date:
+                  description: End of the period that the customer's membership is valid for
+                  type: string
+                  format: date-time
+                  example: 2019-09-26T08:59:59+00:00
+            consent:
+              description: The Customer's consent details
+              type: object
+              properties:
+                email:
+                  description: The Customer's email contact preference
+                  type: boolean
+                  example: true
+                post:
+                  description: The Customer's post contact preference
+                  type: boolean
+                  example: false
+                sms:
+                  description: The Customer's sms contact preference
+                  type: boolean
+                  example: false
+            created_at:
+              description: The DateTime that the resource was created
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+            updated_at:
+              description: The DateTime that the resource was last updated
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+    date:
+      properties:
+        id:
+          description: A unique identifier for the Date
+          type: string
+          example: dat-ABCD12345
+        type:
+          description: A string representing the object's type, in this case "date"
+          type: string
+          example: date
+        attributes:
+          description: The attributes for this Customer
+          type: object
+          properties:
+            doors_open:
+              description: The DateTime that the venue opens for the event Date
+              type: string
+              format: date-time
+              example: 2019-04-27T07:05:00+00:00
+            start:
+              description: The DateTime that the event Date starts
+              type: string
+              format: date-time
+              example: 2019-04-27T19:20:00+00:00
+            end:
+              description: The DateTime that the event Date ends
+              type: string
+              format: date-time
+              example:
+            on_sale:
+              description: Whether the date is on sale
+              type: boolean
+              example: true
+            cancelled:
+              description: Whether the date has been cancelled
+              type: boolean
+              example: false
+            created_at:
+              description: The DateTime that the resource was created
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+            updated_at:
+              description: The DateTime that the resource was last updated
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+    event:
+      properties:
+        id:
+          description: A unique identifier for the Event
+          type: string
+          example: evt-ABCD12345
+        type:
+          description: A string representing the object's type, in this case "event"
+          type: string
+          example: event
+        attributes:
+          description: The attributes for this Event
+          type: object
+          properties:
+            name:
+              description: The event name
+              type: string
+              example: Sample Event
+            reference:
+              description: The reference for this event
+              type: string
+              example: SAMPEVENT
+            description:
+              description: The event description
+              type: string
+              example: A Sample Event on the TicketSource System
+            keywords:
+              description: Keywords for this event
+              type: string
+              example: event, test, sample
+            terms:
+              description: Terms and conditions for this event
+              type: string
+              example:
+            category:
+              description: The category this even belongs to
+              type: string
+              example: business
+            genre:
+              description: The genre for this event within the category
+              type: string
+              example: training
+            images:
+              description: An array of images associated with this event
+              type: array
+              items:
+                $ref: '#/components/schemas/eventImage'
+            third_party_consent:
+              description: The event third part contact consent options
+              type: object
+              properties:
+                capture:
+                  description: Wether to capture third party contact consent for this event
+                  type: boolean
+                  example: true
+                name:
+                  description: The third part associated with this event
+                  type: string
+                  example: Example Visiting Theatre Company
+                show_consent:
+                  description: The third party contact consent options to show
+                  type: object
+                  properties:
+                    email:
+                      description: Whether to capture third party contact consent via email
+                      type: boolean
+                      example: true
+                    post:
+                      description: Whether to capture third party contact consent via post
+                      type: boolean
+                      example: false
+                    sms:
+                      description: Whether to capture third party contact consent via sms
+                      type: boolean
+                      example: false
+            activated:
+              description: Whether this event has been activated or not
+              type: boolean
+              example: true
+            archived:
+              description: Whether this event has been archived or not
+              type: boolean
+              example: false
+            public:
+              description: Whether this event is publicly searchable and will appear on listings pages
+              type: boolean
+              example: true
+            created_at:
+              description: The DateTime that the resource was created
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+            updated_at:
+              description: The DateTime that the resource was last updated
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+    eventImage:
+      properties:
+        type:
+          description: The type of image. Currently one of [thumbnail|banner]
+          type: string
+          example: thumbnail
+        src:
+          description: The src for the image
+          type: string
+          example: https://cdn.ticketsource.co.uk/images/promoter/banner/0001-CZBGTjQn.png
+    venue:
+      properties:
+        id:
+          description: A unique identifier for the Venue
+          type: string
+          example: ven-ABCD12345
+        type:
+          description: A string representing the object's type, in this case "venue"
+          type: string
+          example: venue
+        attributes:
+          description: The attributes for this Customer
+          type: object
+          properties:
+            name:
+              description: The Venue's name
+              type: string
+              example: TicketSource Conference Centre
+            address:
+              description: The Venue address
+              type: object
+              properties:
+                line_1:
+                  description: Line one of the Venue address
+                  type: string
+                  example: Off Edge
+                line_2:
+                  description: Line two of the Venue address
+                  type: string
+                  example: Station Approach
+                line_3:
+                  description: Line three of the Venue address
+                  type: string
+                  example: Penarth
+                line_4:
+                  description: Line four of the Venue address
+                  type: string
+                  example:
+                postcode:
+                  description: The Venue postcode
+                  type: string
+                  example: CF64 3EE
+            boxoffice:
+              description: The Venue boxoffice contact details
+              type: object
+              properties:
+                telephone:
+                  description: The Venue boxoffice telephone number
+                  type: string
+                  example: '02920713200'
+                email:
+                  description: The Venue boxoffice email address
+                  type: string
+                  example: support@ticketsource.co.uk
+            created_at:
+              description: The DateTime that the resource was created
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
+            updated_at:
+              description: The DateTime that the resource was last updated
+              type: string
+              format: date-time
+              example: 2018-01-01T00:00:00.000Z
   securitySchemes:
-    $ref: ./components/securitySchemes.yaml
+    BasicAPIKey:
+      type: http
+      scheme: basic
+      description: The API key provided in the HTTP Basic Auth username
+    BearerToken:
+      type: http
+      scheme: bearer
+      description: The API key provided as a Bearer Token in the Authorization HTTP header
 security:
   - BasicAPIKey: []
   - BearerToken: []
 paths:
-  $ref: paths.yaml
+  /bookings/{bid}:
+    get:
+      tags:
+        - bookings
+      summary: Get a single Booking
+      description: Get a single Booking object for the requested Booking ID
+      operationId: GET_BOOKING
+      parameters:
+        - $ref: '#/components/parameters/bookingIdParam'
+      responses:
+        200:
+          description: The Booking object matching the requested Booking ID
+          content:
+            application/json:
+              schema:
+                $ref: 'openapi.yaml#/components/schemas/booking'
+  /customers:
+    get:
+      tags:
+        - customers
+      summary: List of all Customers
+      description: Get a list of all your Customers
+      operationId: GET_CUSTOMER_LIST
+      responses:
+        200:
+          description: An array of Customer objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/customer'
+  /customers/{cid}:
+    get:
+      tags:
+        - customers
+      summary: Get a single Customer
+      description: Get a single Customer object for the requested Customer ID
+      operationId: GET_CUSTOMER
+      parameters:
+        - $ref: '#/components/parameters/customerIdParam'
+      responses:
+        200:
+          description: The Customer object matching the requested Customer ID
+          content:
+            application/json:
+              schema:
+                $ref: 'openapi.yaml#/components/schemas/customer'
+  /customers/{cid}/bookings:
+    get:
+      tags:
+        - bookings
+      summary: List all Bookings for a Customer
+      description: Get a list of Booking objects for the requested Customer ID
+      operationId: GET_CUSTOMER_BOOKINGS
+      parameters:
+        - $ref: '#/components/parameters/customerIdParam'
+      responses:
+        200:
+          description: An array of Booking objects for the requested Customer ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/booking'
+  /events:
+    get:
+      tags:
+        - events
+      summary: List all Events
+      description: Get a list of all your Events
+      operationId: GET_EVENT_LIST
+      responses:
+        200:
+          description: An array of Event objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/event'
+  /events/{eid}:
+    get:
+      tags:
+        - events
+      summary: Get a single Event
+      description: Get a single Event object for the requested Event ID
+      operationId: GET_EVENT
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: The Event object matching the requested Event ID
+          content:
+            application/json:
+              schema:
+                $ref: 'openapi.yaml#/components/schemas/event'
+  /events/{eid}/venues:
+    get:
+      tags:
+        - venues
+      summary: List all Venues for an Event
+      description: Get a list of Venue objects for the requested Event ID
+      operationId: GET_EVENT_VENUES
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: An array of Venue objects for the requested Event ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/venue'
+  /venues/{vid}:
+    get:
+      tags:
+        - venues
+      summary: Get a single Venue
+      description: Get a single Venue object for the requested Venue ID
+      operationId: GET_VENUE
+      parameters:
+        - $ref: '#/components/parameters/venueIdParam'
+      responses:
+        200:
+          description: The Venue object matching the requested Venue ID
+          content:
+            application/json:
+              schema:
+                $ref: 'openapi.yaml#/components/schemas/venue'
+  /events/{eid}/dates:
+    get:
+      tags:
+        - dates
+      summary: List all Dates for an Event
+      description: Get a list of Date objects for the requested Event ID
+      operationId: GET_EVENT_DATES
+      parameters:
+        - $ref: '#/components/parameters/eventIdParam'
+      responses:
+        200:
+          description: An array of Date objects for the requested Event ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/date'
+  /venue/{vid}/dates:
+    get:
+      tags:
+        - dates
+      summary: List all Dates for a Venue
+      description: Get a list of Date objects for the requested Venue ID
+      operationId: GET_VENUE_DATES
+      parameters:
+        - $ref: '#/components/parameters/venueIdParam'
+      responses:
+        200:
+          description: An array of Date objects for the requested Venue ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/date'
+  /date/{did}:
+    get:
+      tags:
+        - dates
+      summary: Get a single Date
+      description: Get a single Date object for the requested Date ID
+      operationId: GET_DATE
+      parameters:
+        - $ref: '#/components/parameters/dateIdParam'
+      responses:
+        200:
+          description: The Date object matching the requested Date ID
+          content:
+            application/json:
+              schema:
+                $ref: 'openapi.yaml#/components/schemas/date'
+  /dates/{did}/bookings:
+    get:
+      tags:
+        - bookings
+      summary: List all Bookings for a Date
+      description: Get a list of Booking objects for the requested Date ID
+      operationId: GET_DATE_BOOKINGS
+      parameters:
+        - $ref: '#/components/parameters/dateIdParam'
+      responses:
+        200:
+          description: An array of Booking objects for the requested Date ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'openapi.yaml#/components/schemas/booking'
