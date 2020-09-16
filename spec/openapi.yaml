@@ -1,17 +1,17 @@
-openapi: "3.0.1"
+openapi: 3.0.1
 info:
-  title: "TicketSource API OpenAPI Specification"
+  title: TicketSource API OpenAPI Specification
   description: |
     This is an OpenAPI 3.0.1 specification describing the TicketSource API
     # Contribution
     PRs welcome at [GitHub](https://github.com/ticketsource/openapi-spec)
-  version: "1.0"
-  termsOfService: https://www.ticketsource.co.uk/kb/terms-of-use/terms-and-conditions
+  version: '1.0'
+  termsOfService: 'https://www.ticketsource.co.uk/kb/terms-of-use/terms-and-conditions'
   contact:
     name: TicketSource API Developer Support
-    url: https://www.ticketsource.io
+    url: 'https://www.ticketsource.io'
 servers:
-  - url: https://api.ticketsource.io
+  - url: 'https://api.ticketsource.io'
     description: Production Server
 tags:
   - name: bookings
@@ -20,22 +20,22 @@ tags:
     description: Customer specific endpoints
     externalDocs:
       description: For more information see; Working with Customers
-      url: https://www.ticketsource.io/working-with-customers
+      url: 'https://www.ticketsource.io/working-with-customers'
   - name: dates
     description: Date specific endpoints
     externalDocs:
       description: For more information see; Working with Events
-      url: https://www.ticketsource.io/working-with-events
+      url: 'https://www.ticketsource.io/working-with-events'
   - name: events
     description: Event specific endpoints
     externalDocs:
       description: For more information see; Working with Events
-      url: https://www.ticketsource.io/working-with-events
+      url: 'https://www.ticketsource.io/working-with-events'
   - name: venues
     description: Venue specific endpoints
     externalDocs:
       description: For more information see; Working with Events
-      url: https://www.ticketsource.io/working-with-events
+      url: 'https://www.ticketsource.io/working-with-events'
 components:
   parameters:
     bookingIdParam:
@@ -91,7 +91,7 @@ components:
           type: string
           example: bkg-ABCD12345
         type:
-          description: A string representing the object's type, in this case "booking"
+          description: 'A string representing the object''s type, in this case "booking"'
           type: string
           example: booking
         attributes:
@@ -135,12 +135,13 @@ components:
               description: The DateTime that the resource was created
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
             updated_at:
               description: The DateTime that the resource was last updated
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
+      x-examples: {}
     bookingLine:
       properties:
         line_type:
@@ -205,20 +206,21 @@ components:
           description: The DateTime that the resource was created
           type: string
           format: date-time
-          example: 2018-01-01T00:00:00.000Z
+          example: '2018-01-01T00:00:00.000Z'
         updated_at:
           description: The DateTime that the resource was last updated
           type: string
           format: date-time
-          example: 2018-01-01T00:00:00.000Z
+          example: '2018-01-01T00:00:00.000Z'
     customer:
+      type: object
       properties:
         id:
           description: A unique identifier for the Customer
           type: string
           example: cst-ABCD12345
         type:
-          description: A string representing the object's type, in this case "customer"
+          description: 'A string representing the object''s type, in this case "customer"'
           type: string
           example: customer
         attributes:
@@ -252,19 +254,19 @@ components:
                 line_3:
                   description: The third line of the customer's address
                   type: string
-                  example:
+                  example: null
                 line_4:
                   description: The fourth line of the customer's address
                   type: string
-                  example:
+                  example: null
                 postcode:
                   description: The customer's address postcode
                   type: string
                   example: EX123PL
             telephone:
-              description: The customer's telephone number
               type: string
-              example: 0123456789
+              description: The customer's telephone number
+              example: '0123456789'
             email:
               description: The customer's email address
               type: string
@@ -281,12 +283,12 @@ components:
                   description: Start of the period that the customer's membership is valid for
                   type: string
                   format: date-time
-                  example: 2018-09-26T09:00:00+00:00
+                  example: '2018-09-26T09:00:00+00:00'
                 end_date:
                   description: End of the period that the customer's membership is valid for
                   type: string
                   format: date-time
-                  example: 2019-09-26T08:59:59+00:00
+                  example: '2019-09-26T08:59:59+00:00'
             consent:
               description: The Customer's consent details
               type: object
@@ -307,12 +309,12 @@ components:
               description: The DateTime that the resource was created
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
             updated_at:
               description: The DateTime that the resource was last updated
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
     date:
       properties:
         id:
@@ -320,7 +322,7 @@ components:
           type: string
           example: dat-ABCD12345
         type:
-          description: A string representing the object's type, in this case "date"
+          description: 'A string representing the object''s type, in this case "date"'
           type: string
           example: date
         attributes:
@@ -331,17 +333,17 @@ components:
               description: The DateTime that the venue opens for the event Date
               type: string
               format: date-time
-              example: 2019-04-27T07:05:00+00:00
+              example: '2019-04-27T07:05:00+00:00'
             start:
               description: The DateTime that the event Date starts
               type: string
               format: date-time
-              example: 2019-04-27T19:20:00+00:00
+              example: '2019-04-27T19:20:00+00:00'
             end:
               description: The DateTime that the event Date ends
               type: string
               format: date-time
-              example:
+              example: null
             on_sale:
               description: Whether the date is on sale
               type: boolean
@@ -354,12 +356,12 @@ components:
               description: The DateTime that the resource was created
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
             updated_at:
               description: The DateTime that the resource was last updated
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
     event:
       properties:
         id:
@@ -367,7 +369,7 @@ components:
           type: string
           example: evt-ABCD12345
         type:
-          description: A string representing the object's type, in this case "event"
+          description: 'A string representing the object''s type, in this case "event"'
           type: string
           example: event
         attributes:
@@ -389,11 +391,11 @@ components:
             keywords:
               description: Keywords for this event
               type: string
-              example: event, test, sample
+              example: 'event, test, sample'
             terms:
               description: Terms and conditions for this event
               type: string
-              example:
+              example: null
             category:
               description: The category this even belongs to
               type: string
@@ -451,22 +453,22 @@ components:
               description: The DateTime that the resource was created
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
             updated_at:
               description: The DateTime that the resource was last updated
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
     eventImage:
       properties:
         type:
-          description: The type of image. Currently one of [thumbnail|banner]
+          description: 'The type of image. Currently one of [thumbnail|banner]'
           type: string
           example: thumbnail
         src:
           description: The src for the image
           type: string
-          example: https://cdn.ticketsource.co.uk/images/promoter/banner/0001-CZBGTjQn.png
+          example: 'https://cdn.ticketsource.co.uk/images/promoter/banner/0001-CZBGTjQn.png'
     venue:
       properties:
         id:
@@ -474,7 +476,7 @@ components:
           type: string
           example: ven-ABCD12345
         type:
-          description: A string representing the object's type, in this case "venue"
+          description: 'A string representing the object''s type, in this case "venue"'
           type: string
           example: venue
         attributes:
@@ -504,7 +506,7 @@ components:
                 line_4:
                   description: Line four of the Venue address
                   type: string
-                  example:
+                  example: null
                 postcode:
                   description: The Venue postcode
                   type: string
@@ -525,12 +527,12 @@ components:
               description: The DateTime that the resource was created
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
             updated_at:
               description: The DateTime that the resource was last updated
               type: string
               format: date-time
-              example: 2018-01-01T00:00:00.000Z
+              example: '2018-01-01T00:00:00.000Z'
   securitySchemes:
     BasicAPIKey:
       type: http
@@ -544,7 +546,7 @@ security:
   - BasicAPIKey: []
   - BearerToken: []
 paths:
-  /bookings/{bid}:
+  '/bookings/{bid}':
     get:
       tags:
         - bookings
@@ -554,12 +556,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/bookingIdParam'
       responses:
-        200:
+        '200':
           description: The Booking object matching the requested Booking ID
           content:
             application/json:
               schema:
-                $ref: 'openapi.yaml#/components/schemas/booking'
+                $ref: openapi.yaml#/components/schemas/booking
   /customers:
     get:
       tags:
@@ -568,15 +570,16 @@ paths:
       description: Get a list of all your Customers
       operationId: GET_CUSTOMER_LIST
       responses:
-        200:
+        '200':
           description: An array of Customer objects
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/customer'
-  /customers/{cid}:
+                  $ref: openapi.yaml#/components/schemas/customer
+              examples: {}
+  '/customers/{cid}':
     get:
       tags:
         - customers
@@ -586,13 +589,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/customerIdParam'
       responses:
-        200:
+        '200':
           description: The Customer object matching the requested Customer ID
           content:
             application/json:
               schema:
-                $ref: 'openapi.yaml#/components/schemas/customer'
-  /customers/{cid}/bookings:
+                $ref: openapi.yaml#/components/schemas/customer
+  '/customers/{cid}/bookings':
     get:
       tags:
         - bookings
@@ -602,14 +605,14 @@ paths:
       parameters:
         - $ref: '#/components/parameters/customerIdParam'
       responses:
-        200:
+        '200':
           description: An array of Booking objects for the requested Customer ID
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/booking'
+                  $ref: openapi.yaml#/components/schemas/booking
   /events:
     get:
       tags:
@@ -618,15 +621,15 @@ paths:
       description: Get a list of all your Events
       operationId: GET_EVENT_LIST
       responses:
-        200:
+        '200':
           description: An array of Event objects
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/event'
-  /events/{eid}:
+                  $ref: openapi.yaml#/components/schemas/event
+  '/events/{eid}':
     get:
       tags:
         - events
@@ -636,13 +639,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/eventIdParam'
       responses:
-        200:
+        '200':
           description: The Event object matching the requested Event ID
           content:
             application/json:
               schema:
-                $ref: 'openapi.yaml#/components/schemas/event'
-  /events/{eid}/venues:
+                $ref: openapi.yaml#/components/schemas/event
+  '/events/{eid}/venues':
     get:
       tags:
         - venues
@@ -652,15 +655,15 @@ paths:
       parameters:
         - $ref: '#/components/parameters/eventIdParam'
       responses:
-        200:
+        '200':
           description: An array of Venue objects for the requested Event ID
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/venue'
-  /venues/{vid}:
+                  $ref: openapi.yaml#/components/schemas/venue
+  '/venues/{vid}':
     get:
       tags:
         - venues
@@ -670,13 +673,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/venueIdParam'
       responses:
-        200:
+        '200':
           description: The Venue object matching the requested Venue ID
           content:
             application/json:
               schema:
-                $ref: 'openapi.yaml#/components/schemas/venue'
-  /events/{eid}/dates:
+                $ref: openapi.yaml#/components/schemas/venue
+  '/events/{eid}/dates':
     get:
       tags:
         - dates
@@ -686,15 +689,15 @@ paths:
       parameters:
         - $ref: '#/components/parameters/eventIdParam'
       responses:
-        200:
+        '200':
           description: An array of Date objects for the requested Event ID
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/date'
-  /venue/{vid}/dates:
+                  $ref: openapi.yaml#/components/schemas/date
+  '/venue/{vid}/dates':
     get:
       tags:
         - dates
@@ -704,15 +707,15 @@ paths:
       parameters:
         - $ref: '#/components/parameters/venueIdParam'
       responses:
-        200:
+        '200':
           description: An array of Date objects for the requested Venue ID
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/date'
-  /date/{did}:
+                  $ref: openapi.yaml#/components/schemas/date
+  '/date/{did}':
     get:
       tags:
         - dates
@@ -722,13 +725,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/dateIdParam'
       responses:
-        200:
+        '200':
           description: The Date object matching the requested Date ID
           content:
             application/json:
               schema:
-                $ref: 'openapi.yaml#/components/schemas/date'
-  /dates/{did}/bookings:
+                $ref: openapi.yaml#/components/schemas/date
+  '/dates/{did}/bookings':
     get:
       tags:
         - bookings
@@ -738,11 +741,11 @@ paths:
       parameters:
         - $ref: '#/components/parameters/dateIdParam'
       responses:
-        200:
+        '200':
           description: An array of Booking objects for the requested Date ID
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'openapi.yaml#/components/schemas/booking'
+                  $ref: openapi.yaml#/components/schemas/booking
