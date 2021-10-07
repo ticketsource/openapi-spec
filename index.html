@@ -3,8 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" sizes="192x192" href="/favicon-highres.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>TicketSource API Specification</title>
     <style>
         body {
@@ -47,7 +51,7 @@
         <nav class="flex bg-black fixed pin-t pin-x h-12 items-center z-10">
             <div class="px-6 flex-1">
                 <a href="#redoc">
-                    <img class="h-6" src="https://cdn.ticketsource.co.uk/brochure/images/TicketSource_logo.svg" alt="TicketSource">
+                    <img class="h-6" src="https://cdn.ticketsource.co.uk/images/ticketsource-white.svg" alt="TicketSource">
                 </a>
             </div>
             <div class="px-6 flex-1 text-right">
@@ -59,7 +63,7 @@
     </header>
     <div id="redoc"></div>
     <script src="https://kit.fontawesome.com/15506db1cb.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.46/bundles/redoc.standalone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.50/bundles/redoc.standalone.min.js"></script>
     <script type="application/javascript">
         Redoc.init('spec/openapi.yaml', {
           requiredPropsFirst: true,
@@ -67,8 +71,12 @@
           theme: {
             colors: {
               primary: {
-                main: '#E97117',
+                main: '#eb601a',
               }
+            },
+            typography: {
+                fontFamily: 'Poppins,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
+                fontSize: '16px'
             }
           }
         }, document.getElementById('redoc'));
