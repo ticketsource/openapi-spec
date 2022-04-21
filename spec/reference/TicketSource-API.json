@@ -419,9 +419,6 @@
       "Event": {
         "title": "Event",
         "type": "object",
-        "x-tags": [
-          "Event"
-        ],
         "properties": {
           "id": {
             "type": "string"
@@ -599,10 +596,7 @@
               }
             }
           }
-        },
-        "x-tags": [
-          "Venue"
-        ]
+        }
       },
       "Date": {
         "title": "Date",
@@ -670,11 +664,7 @@
               }
             }
           }
-        },
-        "x-tags": [
-          "Date",
-          "Performance"
-        ]
+        }
       },
       "Booking": {
         "type": "object",
@@ -871,12 +861,7 @@
               }
             }
           }
-        },
-        "x-tags": [
-          "Booking",
-          "Donation",
-          "Ticket"
-        ]
+        }
       },
       "Seat": {
         "title": "Seat",
@@ -1098,10 +1083,7 @@
               }
             }
           }
-        },
-        "x-tags": [
-          "Customer"
-        ]
+        }
       },
       "CustomerNote": {
         "title": "CustomerNote",
