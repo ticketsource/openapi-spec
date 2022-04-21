@@ -1,0 +1,50 @@
+[
+    {
+      "name": "Booking"
+    },
+    {
+      "name": "Bookings"
+    },
+    {
+      "name": "Customer"
+    },
+    {
+      "name": "Customers"
+    },
+    {
+      "name": "Date"
+    },
+    {
+      "name": "Dates"
+    },
+    {
+      "name": "Event"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Performance"
+    },
+    {
+      "name": "Performances"
+    },
+    {
+      "name": "Seat"
+    },
+    {
+      "name": "Seats"
+    },
+    {
+      "name": "Ticket"
+    },
+    {
+      "name": "Tickets"
+    },
+    {
+      "name": "Venue"
+    },
+    {
+      "name": "Venues"
+    }
+]
