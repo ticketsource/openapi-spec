@@ -726,11 +726,11 @@
         ]
       },
       "post": {
-        "summary": "",
+        "summary": "Create Customer Note",
         "operationId": "post-customer-note",
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -759,7 +759,21 @@
         ],
         "tags": [
           "Customers"
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/CustomerNote"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/customers/{CustomerId}/notes/{CustomerNoteId}": {
@@ -1902,7 +1916,8 @@
           "id": {
             "type": "string",
             "example": "csn-47azjpMWXREgVQN8",
-            "pattern": "csn-[a-zA-Z0-9]+"
+            "pattern": "csn-[a-zA-Z0-9]+",
+            "readOnly": true
           },
           "type": {
             "type": "string",
