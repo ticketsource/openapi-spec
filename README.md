@@ -2,14 +2,14 @@
 
 This is the repository for the OpenAPI specification files for the TicketSource API.
 
-## Online reference
+## Using the API
 
-You can view the reference documentation generated from this specification at 
+If you are looking to integrate with our API you can check out our [guide](https://www.ticketsource.io), you can also view the reference documentation generated from this specification at 
 [reference.ticketsource.io](https://reference.ticketsource.io) 
 
 ## Downloads
 
-Alternatively you can download the specification files using the links below:
+You can download the specification files using the links below:
 
 ### Formats
 
