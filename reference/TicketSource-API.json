@@ -321,7 +321,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Venue"
+                      "$ref": "#/components/schemas/Date"
                     }
                   }
                 }

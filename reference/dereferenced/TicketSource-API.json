@@ -1267,9 +1267,9 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "title": "Venue",
+                      "title": "Date",
                       "type": "object",
-                      "description": "A Venue belonging to an Event that can have multiple Dates associated with it.",
+                      "description": "A Date representing a single datetime performance of an Event at a Venue",
                       "properties": {
                         "id": {
                           "type": "string"
@@ -1280,39 +1280,29 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "name": {
+                            "doors_open": {
                               "type": "string"
                             },
-                            "address": {
-                              "type": "object",
-                              "properties": {
-                                "line_1": {
-                                  "type": "string"
-                                },
-                                "line_2": {
-                                  "type": "string"
-                                },
-                                "line_3": {
-                                  "type": "string"
-                                },
-                                "line_4": {
-                                  "type": "string"
-                                },
-                                "postcode": {
-                                  "type": "string"
-                                }
-                              }
+                            "start": {
+                              "type": "string"
                             },
-                            "boxoffice": {
-                              "type": "object",
-                              "properties": {
-                                "telephone": {
-                                  "type": "string"
-                                },
-                                "email": {
-                                  "type": "string"
-                                }
-                              }
+                            "end": {
+                              "type": "string"
+                            },
+                            "on_sale": {
+                              "type": "boolean"
+                            },
+                            "on_sale_start": {
+                              "type": "string"
+                            },
+                            "on_sale_end": {
+                              "type": "string"
+                            },
+                            "public": {
+                              "type": "boolean"
+                            },
+                            "cancelled": {
+                              "type": "boolean"
                             },
                             "created_at": {
                               "type": "string",
@@ -1338,11 +1328,19 @@
                               "type": "string",
                               "readOnly": true
                             },
-                            "dates": {
+                            "book_now": {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            "bookings": {
                               "type": "string",
                               "readOnly": true
                             },
                             "event": {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            "venue": {
                               "type": "string",
                               "readOnly": true
                             }
