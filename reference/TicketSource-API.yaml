@@ -189,7 +189,7 @@ paths:
                 type: object
                 properties:
                   data:
-                    $ref: '#/components/schemas/Venue'
+                    $ref: '#/components/schemas/Date'
         '404':
           $ref: '#/components/responses/NotFound'
       operationId: get-date
