@@ -357,7 +357,19 @@ paths:
               type: object
               properties:
                 data:
-                  $ref: '#/components/schemas/Customer'
+                  allOf:
+                    - $ref: '#/components/schemas/Customer'
+                      x-stoplight:
+                        id: ccmnlojcyy7ws
+                    - type: object
+                      x-stoplight:
+                        id: mmko6mknegpsc
+                      properties:
+                        id:
+                          type: string
+                          x-stoplight:
+                            id: 0px63wher8uu1
+                          writeOnly: true
       tags:
         - Customers
     delete:
