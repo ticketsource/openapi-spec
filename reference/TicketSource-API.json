@@ -607,22 +607,13 @@
                   "data": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/Customer",
-                        "x-stoplight": {
-                          "id": "ccmnlojcyy7ws"
-                        }
+                        "$ref": "#/components/schemas/Customer"
                       },
                       {
                         "type": "object",
-                        "x-stoplight": {
-                          "id": "mmko6mknegpsc"
-                        },
                         "properties": {
                           "id": {
                             "type": "string",
-                            "x-stoplight": {
-                              "id": "0px63wher8uu1"
-                            },
                             "writeOnly": true
                           }
                         }
@@ -1464,10 +1455,6 @@
                     },
                     "payment_method": {
                       "type": "string",
-                      "enum": [
-                        "TS",
-                        "STRIPE"
-                      ],
                       "example": "TS",
                       "readOnly": true
                     },
@@ -1515,7 +1502,6 @@
                               "properties": {
                                 "description": {
                                   "type": "string",
-                                  "example": "",
                                   "readOnly": true
                                 },
                                 "amount": {
@@ -1544,6 +1530,16 @@
                       "format": "date-time",
                       "example": "2022-09-27T09:00:00+00:00",
                       "readOnly": true
+                    },
+                    "donation": {
+                      "type": "object",
+                      "minProperties": 1,
+                      "additionalProperties": false,
+                      "properties": {
+                        "gift_aid": {
+                          "type": "boolean"
+                        }
+                      }
                     }
                   }
                 }
