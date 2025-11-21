@@ -359,16 +359,10 @@ paths:
                 data:
                   allOf:
                     - $ref: '#/components/schemas/Customer'
-                      x-stoplight:
-                        id: ccmnlojcyy7ws
                     - type: object
-                      x-stoplight:
-                        id: mmko6mknegpsc
                       properties:
                         id:
                           type: string
-                          x-stoplight:
-                            id: 0px63wher8uu1
                           writeOnly: true
       tags:
         - Customers
@@ -904,9 +898,6 @@ components:
                     readOnly: true
                   payment_method:
                     type: string
-                    enum:
-                      - TS
-                      - STRIPE
                     example: TS
                     readOnly: true
                   is_refund:
@@ -947,7 +938,6 @@ components:
                             properties:
                               description:
                                 type: string
-                                example: ''
                                 readOnly: true
                               amount:
                                 type: number
@@ -966,6 +956,13 @@ components:
                     format: date-time
                     example: '2022-09-27T09:00:00+00:00'
                     readOnly: true
+                  donation:
+                    type: object
+                    minProperties: 1
+                    additionalProperties: false
+                    properties:
+                      gift_aid:
+                        type: boolean
             created_at:
               type: string
               example: '2022-09-26T09:00:00+00:00'
