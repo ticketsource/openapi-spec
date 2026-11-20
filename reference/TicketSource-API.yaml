@@ -27,6 +27,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Event'
+              examples: {}
       operationId: get-events
       description: List paginated Events.
       security:
@@ -659,30 +660,40 @@ components:
     Event:
       title: Event
       type: object
+      description: An Event which can have multiple Venues and Dates associated with it.
+      x-internal: false
+      examples: []
       properties:
         id:
           type: string
+          example: evt-G5woDVqdZxkgzv9b
         type:
           type: string
+          example: event
         attributes:
           type: object
           properties:
             name:
               type: string
+              example: API Test Event
             reference:
               type: string
             description:
               type: string
+              example: This is a test event for API examples
             comment:
               type: string
+              example: This is a test event for API examples
             keywords:
               type: string
             terms:
               type: string
             category:
               type: string
+              example: comedy
             genre:
               type: string
+              example: live-standup
             images:
               type: array
               items:
@@ -731,49 +742,61 @@ components:
           properties:
             self:
               type: string
+              example: 'http://api.ticketsource.io/events/evt-G5woDVqdZxkgzv9b'
               readOnly: true
             venues:
               type: string
+              example: 'http://api.ticketsource.io/events/evt-G5woDVqdZxkgzv9b/venues'
               readOnly: true
             dates:
               type: string
+              example: 'http://api.ticketsource.io/events/evt-G5woDVqdZxkgzv9b/dates'
               readOnly: true
           readOnly: true
-      description: An Event which can have multiple Venues and Dates associated with it.
     Venue:
       title: Venue
       type: object
       description: A Venue belonging to an Event that can have multiple Dates associated with it.
+      examples: []
       properties:
         id:
           type: string
+          example: ven-zMbgX7rNoO76QY8Z
         type:
           type: string
+          example: venue
         attributes:
           type: object
           properties:
             name:
               type: string
+              example: TicketSource
             address:
               type: object
               properties:
                 line_1:
                   type: string
+                  example: Station Approach
                 line_2:
                   type: string
+                  example: Penarth
                 line_3:
                   type: string
                 line_4:
                   type: string
+                  example: United Kingdom
                 postcode:
                   type: string
+                  example: CF64 3EE
             boxoffice:
               type: object
               properties:
                 telephone:
                   type: string
+                  example: '0123456789'
                 email:
                   type: string
+                  example: example@mailinator.com
             created_at:
               type: string
               example: '2022-09-26T09:00:00+00:00'
@@ -791,38 +814,49 @@ components:
           properties:
             self:
               type: string
+              example: 'http://api.ticketsource.io/venues/ven-zMbgX7rNoO76QY8Z'
               readOnly: true
             dates:
               type: string
+              example: 'http://api.ticketsource.io/venues/ven-zMbgX7rNoO76QY8Z/dates'
               readOnly: true
             event:
               type: string
+              example: 'http://api.ticketsource.io/events/evt-G5woDVqdZxkgzv9b'
               readOnly: true
           readOnly: true
     Date:
       title: Date
       type: object
       description: A Date representing a single datetime performance of an Event at a Venue
+      examples: []
       properties:
         id:
           type: string
+          example: dat-m8Pgq48o3mZdvbNG
         type:
           type: string
+          example: date
         attributes:
           type: object
           properties:
             doors_open:
               type: string
+              example: '2026-12-17T10:00:00+00:00'
             start:
               type: string
+              example: '2026-12-17T10:00:00+00:00'
             end:
               type: string
+              example: '2026-12-17T10:00:00+00:00'
             on_sale:
               type: boolean
             on_sale_start:
               type: string
+              example: '2026-12-17T10:00:00+00:00'
             on_sale_end:
               type: string
+              example: '2026-12-17T10:00:00+00:00'
             public:
               type: boolean
             cancelled:
@@ -844,18 +878,23 @@ components:
           properties:
             self:
               type: string
+              example: 'http://api.ticketsource.io/dates/dat-m8Pgq48o3mZdvbNG'
               readOnly: true
             book_now:
               type: string
+              example: 'https://www.ticketsource.com/booking/dat-m8Pgq48o3mZdvbNG'
               readOnly: true
             bookings:
               type: string
+              example: 'http://api.ticketsource.io/dates/dat-m8Pgq48o3mZdvbNG/bookings'
               readOnly: true
             event:
               type: string
+              example: 'http://api.ticketsource.io/events/evt-G5woDVqdZxkgzv9b'
               readOnly: true
             venue:
               type: string
+              example: 'http://api.ticketsource.io/venues/ven-zMbgX7rNoO76QY8Z'
               readOnly: true
           readOnly: true
     Booking:
@@ -1052,10 +1091,13 @@ components:
               properties:
                 title:
                   type: string
+                  example: mr
                 first_name:
                   type: string
+                  example: simon
                 last_name:
                   type: string
+                  example: emery
                 company:
                   type: object
                   properties:
@@ -1065,8 +1107,10 @@ components:
                       type: string
                 telephone:
                   type: string
+                  example: '0123456789'
                 email:
                   type: string
+                  example: example@mailinator.com
             created_at:
               type: string
               example: '2022-09-26T09:00:00+00:00'
@@ -1084,9 +1128,11 @@ components:
           properties:
             self:
               type: string
+              example: 'http://api.ticketsource.io/venues/sea-L24o9yE8YV43PmAZ'
               readOnly: true
             booking:
               type: string
+              example: 'http://api.ticketsource.io/bookings/bkg-yA6Dn0vgPWzpxjBV'
               readOnly: true
           readOnly: true
     Customer:
